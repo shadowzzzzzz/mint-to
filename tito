@@ -1,0 +1,27 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+
+contract MintableToken is ERC20, Ownable {
+    // Constructor to initialize the token with a name and symbol
+    constructor() ERC20("Mintable Token", "MINT") {
+        // Initial minting of tokens to the contract deployer
+        _mint(msg.sender, n * 18 ** decimals()); // Mint n tokens
+    }
+
+    // Function to mint new tokens
+    function mint(address to, uint256 amount) public onlyOwner {
+        _mint(to, amount);
+
+contract ERC20 is IERC20 {
+   uint public totalSupply;
+   mapping(address => uint) public balanceOf;
+   mapping(address => mapping(address => uint)) public allowance;
+   string public name = "Solidity by Example";
+   string public symbol = "tito";
+   
+
+    }
+}
